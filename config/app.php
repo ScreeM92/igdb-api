@@ -185,6 +185,8 @@ return [
          * Application Roles and Permissions Providers...
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
+
+        Barryvdh\Cors\ServiceProvider::class,
     ],
 
     /*

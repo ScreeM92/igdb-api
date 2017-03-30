@@ -19,7 +19,11 @@ Route::post('oauth/access_token', function (Request $request) {
     return $controller->login($request);
 });
 
-Route::group(['middleware' => ['auth:api','role:user']], function () {
+
+Route::post('/games', 'GamesController@getIndex');
+Route::post('/news', 'NewsController@getIndex');
+
+Route::group(['middleware' => ['auth:api']], function () {
 	// // Files
 	// Route::get('/files', 'FilesController@getIndex');
 	// Route::post('files/upload', 'FilesController@postUpload');

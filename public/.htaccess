@@ -1,3 +1,13 @@
+Options -Indexes
+
+<IfModule mod_headers.c>
+    SetEnvIfNoCase Origin "https?://(www\.)?(igdb\.local)(:\d+)?$" AccessControlAllowOrigin=$0
+    Header always set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+</IfModule>
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE"
+Header always set Access-Control-Allow-Credentials true
+Header always set Access-Control-Allow-Headers "Authorization, Content-Type, *"
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews
